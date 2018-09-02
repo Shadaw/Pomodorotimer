@@ -21,19 +21,19 @@
 .pomodoro {
     display: flex;
     align-content: center;
-    font-size: 300px; /* 120*/
+    font-size: 160px; /* 120*/
 }
 
 .button input {
-    font-size: 60px; /* 30px */
+    font-size: 40px; /* 30px */
     cursor: pointer;
     background: tomato;
-    border-radius: 70px; /* 50 */
+    border-radius: 50px; /* 50 */
     padding: 10px;
     color: white;
     margin-bottom: 20px;
-    width: 750px; /* 300*/
-    height: 160px; /* 80 */
+    width: 400px; /* 300*/
+    height: 100px; /* 80 */
 }
 
 .rodape h6 {
@@ -43,7 +43,7 @@
 }
 
 
-@media screen and (min-width:768px){
+@media screen and (max-width:568px){
     .content {
         height: 95vh;
     }
