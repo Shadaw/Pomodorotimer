@@ -45,7 +45,7 @@
 
 @media screen and (max-width:568px){
     .content {
-        height: 95vh;
+        height: 97vh;
     }
 
     .pomodoro {
@@ -57,5 +57,9 @@
         border-radius: 50px;
         width: 300px;
         height: 80px;
+    }
+
+    .rodape h6 {
+        font-size: 18px;
     }
 }
