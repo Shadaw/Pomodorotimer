@@ -1,3 +1,10 @@
+if (!Notification) {
+    alert("Nao funciona no teu browser")
+}
+
+if (Notification.permission !== "granted")
+    Notification.requestPermission()
+
 let x = '';
 let minutosDezena = 2; 
 let minutosUnidade = 4; 
@@ -28,6 +35,14 @@ let  startPomodoro = () => {
     if(minutosUnidade == 0 && minutosDezena == 0 && segundosDezena == 0 && segundosUnidade == -1) {
         clearTimeout(x);
         alert('Acabou seu pomodoro');
+        var notificacao = new Notification('Pomodoro Timer', {
+            icon : 'https://cdn.icon-icons.com/icons2/881/PNG/512/Tomato_icon-icons.com_68675.png',
+            body : 'Acabou seu pomodoro'
+        })
+    
+        notificacao.onclick = function() {
+            window.open('http://shadaw.github.io/Pomodorotimer')
+        }
     }
         
     // funçao para subtrair as dezenas de Minutos, e adicionar unidades de Minutos [quando acabar todas as unidades de Minuto]
