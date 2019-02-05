@@ -2,8 +2,9 @@ if (!Notification) {
     alert("Nao funciona no teu browser")
 }
 
-if (Notification.permission !== "granted")
+if (Notification.permission !== "granted") {
     Notification.requestPermission()
+}
 
 let x = '';
 let minutosDezena = 2; 
@@ -11,13 +12,16 @@ let minutosUnidade = 4;
 let segundosDezena = 5;
 let segundosUnidade = 9; 
 
-let  startPomodoro = () => {
-    document.getElementById('btnIniciar').style.background = "#a23e2c"
-    document.getElementById('btnPausar').style.cursor = "pointer"
-    document.getElementById('btnPausar').style.background = "tomato"
+let startPomodoro = () => {
+    document.getElementById('btnIniciar').style.background = "#a23e2c";
+    document.getElementById('btnPausar').style.cursor = "pointer";
+    document.getElementById('btnLimpar').style.cursor = "pointer";
+    document.getElementById('btnPausar').style.background = "tomato";
+    document.getElementById('btnLimpar').style.background = "tomato";
     document.getElementById('btnIniciar').style.cursor = "context-menu";
     document.getElementById('btnIniciar').disabled = true;
     document.getElementById('btnPausar').disabled = false;
+    document.getElementById('btnLimpar').disabled = false;
         
     // impressao do tempo na tela
     minutoDezana.innerText = minutosDezena;
@@ -41,7 +45,7 @@ let  startPomodoro = () => {
         })
     
         notificacao.onclick = function() {
-            window.open('http://shadaw.github.io/Pomodorotimer')
+            window.open('http://shadaw.github.io/Pomodorotimer');
         }
     }
         
@@ -68,10 +72,42 @@ let  startPomodoro = () => {
     
 let pausar = () => {
     clearTimeout(x);
-    document.getElementById('btnIniciar').style.cursor = "pointer"
-    document.getElementById('btnPausar').style.cursor = "context-menu"; 
-    document.getElementById('btnPausar').style.background = "#a23e2c" 
-    document.getElementById('btnIniciar').style.background = "tomato"   
+    document.getElementById('btnIniciar').style.cursor = "pointer";
+    document.getElementById('btnLimpar').style.cursor = "pointer";
+    document.getElementById('btnPausar').style.cursor = "context-menu";
+    document.getElementById('btnPausar').style.background = "#a23e2c";
+    document.getElementById('btnIniciar').style.background = "tomato";
+    document.getElementById('btnLimpar').style.background = "tomato";
     document.getElementById('btnPausar').disabled = true;   
     document.getElementById('btnIniciar').disabled = false;  
+    document.getElementById('btnLimpar').disabled = false;  
+}
+
+let limpar = () => {
+    clearTimeout(x);
+    document.getElementById('btnIniciar').style.cursor = "pointer";
+    document.getElementById('btnPausar').style.cursor = "pointer";
+    document.getElementById('btnLimpar').style.cursor = "context-menu";
+    document.getElementById('btnLimpar').style.background = "#a23e2c"; 
+    document.getElementById('btnIniciar').style.background = "tomato";   
+    document.getElementById('btnPausar').style.background = "tomato";   
+    document.getElementById('btnPausar').disabled = false;   
+    document.getElementById('btnIniciar').disabled = false;  
+    document.getElementById('btnLimpar').disabled = true;  
+
+    x = '';
+    minutosDezena = 0; 
+    minutosUnidade = 0; 
+    segundosDezena = 0;
+    segundosUnidade = 0; 
+
+    minutoDezana.innerText = minutosDezena;
+    minutoUnidade.innerText = minutosUnidade;
+    segundoDezena.innerText = segundosDezena;
+    segundoUnidade.innerText = segundosUnidade;
+
+    minutosDezena = 2; 
+    minutosUnidade = 4; 
+    segundosDezena = 5;
+    segundosUnidade = 9; 
 }
